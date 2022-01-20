@@ -1,22 +1,32 @@
 package entities;
 
-public class Company extends TaxPayer{
+public class Company extends TaxPayer {
 
-	private Double healthExpeditures;
-	
+	private int numberOfEmployees;
+
 	public Company() {
 	}
 
-	public Company(String name, Double anuallcome, Double healthExpeditures) {
+	public Company(String name, Double anuallcome, int numberOfEmployees) {
 		super(name, anuallcome);
-		this.healthExpeditures = healthExpeditures;
+		this.numberOfEmployees = numberOfEmployees;
 	}
 
-	public Double getHealthExpeditures() {
-		return healthExpeditures;
+	public int getNumberOfEmployees() {
+		return numberOfEmployees;
 	}
 
-	public void setHealthExpeditures(Double healthExpeditures) {
-		this.healthExpeditures = healthExpeditures;
+	public void setNumberOfEmployees(int numberOfEmployees) {
+		this.numberOfEmployees = numberOfEmployees;
 	}
-}
+	double sum = 0;
+	public Double Tax() {
+		 
+		if( getAnuallncome() > 10) {
+			sum += getAnuallncome() *14/100;
+		}
+		else {
+			 sum += getAnuallncome() *16/100;
+		}
+		return sum;
+	}	}

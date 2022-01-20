@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
-import java.util.regex.PatternSyntaxException;
 
 import entities.Company;
 import entities.Individual;
@@ -34,21 +33,28 @@ public class Program {
 			if(ch == 'i') {
 				System.out.print("Health expenditures: ");
 				Double health = sc.nextDouble();
-				list.add(new Individual(name, anual, health));
-				
+				list.add(new Individual(name, anual, health));	
 			}
 			else {
 				System.out.print("Numberof employees: ");
 				int employees = sc.nextInt();
 				list.add(new Company(name, anual, employees));
 			}
-			System.out.println();
-			System.out.println("TAXES PAID:");
-			for(TaxPayer payer : list) { 
-				System.out.println(payer.getName() + ":" +  " $ " + (String.format("%.2f" , payer.getAnuallncome())));
-			}
-		
 		}
+		System.out.println();
+		System.out.println("TAXES PAID:");
+		
+		for (TaxPayer payer : list) {
+			 System.out.println(payer.getName() + ":" +  " $ " + (String.format("%.2f" , payer.Tax())));
+		}
+		double totalValue = 0;
+		for (TaxPayer payer : list) {
+			  totalValue += payer.Tax();
+			}
+			
+		System.out.println();
+		System.out.println("TOTAL TAXE: $ " + String.format("%.2f", totalValue));
+		
 		
 		sc.close();
 	}
