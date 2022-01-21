@@ -22,7 +22,7 @@ public class Company extends TaxPayer {
 	double sum = 0;
 	public Double Tax() {
 		 
-		if( getAnuallncome() > 10) {
+		if( numberOfEmployees > 10) {
 			sum += getAnuallncome() *14/100;
 		}
 		else {
