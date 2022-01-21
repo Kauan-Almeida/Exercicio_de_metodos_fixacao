@@ -44,17 +44,15 @@ public class Program {
 		System.out.println();
 		System.out.println("TAXES PAID:");
 		
-		for (TaxPayer payer : list) {
-			 System.out.println(payer.getName() + ":" +  " $ " + (String.format("%.2f" , payer.Tax())));
-		}
 		double totalValue = 0;
-		for (TaxPayer payer : list) {
-			  totalValue += payer.Tax();
-			}
-			
-		System.out.println();
-		System.out.println("TOTAL TAXE: $ " + String.format("%.2f", totalValue));
 		
+		for (TaxPayer payer : list) {
+			 double tax = payer.Tax(); 
+			 System.out.println(payer.getName() + ":" +  " $ " + (String.format("%.2f" , tax)));
+			 totalValue += tax;
+		}
+		System.out.println();
+		System.out.println("TOTAL TAXES: $ " + totalValue);
 		
 		sc.close();
 	}
